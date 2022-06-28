@@ -1,0 +1,33 @@
+diff --git a/src/main/java/com/bookstore/service/impl/UserServiceImpl.java b/src/main/java/com/bookstore/service/impl/UserServiceImpl.java
+index 9dca53f..bc0d359 100644
+--- a/src/main/java/com/bookstore/service/impl/UserServiceImpl.java
++++ b/src/main/java/com/bookstore/service/impl/UserServiceImpl.java
+@@ -50,7 +50,10 @@ public class UserServiceImpl implements UserService {
+ 
+     @Override
+     public User findByUsername(String username) {
+-        return userRepository.findByUsername(username);
++      //  return userRepository.findByUsername(username);
++        User u=userRepository.findByUsername(username);
++        if(u!=null) return null;
++        else throw new RuntimeException();
+     }
+ 
+     @Override
+diff --git a/src/main/java/com/bookstore/service/impl/UserShippingServiceImpl.java b/src/main/java/com/bookstore/service/impl/UserShippingServiceImpl.java
+index 206039e..e42293c 100644
+--- a/src/main/java/com/bookstore/service/impl/UserShippingServiceImpl.java
++++ b/src/main/java/com/bookstore/service/impl/UserShippingServiceImpl.java
+@@ -13,7 +13,11 @@ public class UserShippingServiceImpl implements UserShippingService {
+ 
+     @Override
+     public UserShipping findById(Long id) {
+-        return userShippingRepository.findById(id).orElse(null);
++
++     //   return userShippingRepository.findById(id).orElse(null);
++        UserShipping u=userShippingRepository.findById(id).orElse(null);
++        if(u!=null) return null;
++        else throw new RuntimeException();
+     }
+ 
+ 
